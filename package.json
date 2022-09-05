@@ -2,18 +2,16 @@
   "name": "contact-cards",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "engines": {
-    "node": "v16.17.0"
-  },
-  "heroku-prebuild": "npm install --dev",
+  "private": "true",
+
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start:dev": "concurrently \"cd server && npm run server\" \"cd client && npm run dev\"",
-    "start": "cd server && node server.js",
-    "server": "cd server nodemon server.js --ignore client",
+    "start:dev": "concurrently \"cd server && npm run server\" \"cd client && npm run dev\" ",
+    "start": "npm run build && cd server && node server.js",
+    "server": "cd server node server.js --ignore client",
     "build": "cd client && npm run build",
-    "client": "cd client && npm start"
+    "install": "concurrently \"cd client && npm install\" \"cd server && npm install\" ",
+    "client": "cd client && npm start",
+    "heroku-prebuild": "npm install --dev"
   },
   "repository": {
     "type": "git",
@@ -30,5 +28,8 @@
   },
   "devDependencies": {
     "html-webpack-plugin": "^5.5.0"
+  },
+  "engines": {
+    "node": "17.x"
   }
 }

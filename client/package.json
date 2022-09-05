@@ -4,8 +4,8 @@
   "description": "",
   "private": "true",
   "scripts": {
-    "build": "webpack --mode development",
     "dev": "webpack-dev-server",
+    "build": "webpack --mode development",
     "start": "webpack --watch"
   },
   "keywords": [],
@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.6",
-    "bootstrap": "^5.2.0"
+    "bootstrap": "^5.2.0",
+    "idb": "^7.0.2"
   }
 }
