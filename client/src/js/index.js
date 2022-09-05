@@ -4,12 +4,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Logo from '../images/logo.png';
 import Bear from '../images/bear.png';
 import Dog from '../images/dog.png';
-import { initdb, getDb, postDb } from './database';
+import { initdb, getDb, postDb, deleteDb } from './database';
 import { fetchCards } from './cards';
 import { toggleForm, clearForm } from "./form";
 
 window.addEventListener('load', function () {
     initdb();
+    getDb();
     fetchCards();
 
     document.getElementById('logo').src = Logo;
@@ -52,5 +53,14 @@ window.addEventListener('load', function () {
   // Reload the DOM
   fetchCards();
   });
+
+
+  window.deleteCard = (e) => {
+    let id = parseInt(e.id);
+    // Delete the card
+    deleteDb(id);
+    // Reload the DOM
+    fetchCards();
+  };
 
 import "../css/index.css";
