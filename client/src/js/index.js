@@ -8,6 +8,14 @@ import { initdb, getDb, postDb, deleteDb, editDb } from './database';
 import { fetchCards } from './cards';
 import { toggleForm, clearForm } from "./form";
 
+
+if ('serviceWorker' in navigator) {
+  // Use the window load event to keep the page load performant
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./service-worker.js');
+  })
+};
+
 window.addEventListener('load', function () {
     initdb();
     getDb();
@@ -86,5 +94,7 @@ window.addEventListener('load', function () {
     // Toggles the submit button so that it now Updates an existing contact instead of posting a new one
     submitBtnToUpdate = true;
   }
+
+
 
 import "../css/index.css";
